@@ -7,7 +7,7 @@
       "genre": "Arcade",
       "description": "Replace this sample with your own game entry.",
       "cover": "./neon-runner/cover.jpg",
-      "url": "/neon-runner/index.html",
+      "url": "./neon-runner/index.html",
       "tags": ["Fast", "Single player"]
     }
   ]
