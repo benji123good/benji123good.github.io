@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A clean, lightweight browser game store." />
+    <title>Arcade Shelf</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Arcade Shelf home">Arcade<span>Shelf</span></a>
+      <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search games" autocomplete="off" /></label>
+      <button id="catalog-button" class="ghost" type="button">Catalog source</button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">YOUR GAME LIBRARY</p>
+        <h1>Everything worth playing, in one shelf.</h1>
+        <p id="catalog-status">Loading your catalog…</p>
+        <div id="featured" class="featured"></div>
+      </section>
+
+      <section class="collection" aria-labelledby="collection-title">
+        <div class="section-heading"><div><p class="eyebrow">BROWSE</p><h2 id="collection-title">Game collection</h2></div><p id="count"></p></div>
+        <div id="filters" class="filters" aria-label="Game categories"></div>
+        <div id="games" class="game-grid"></div>
+      </section>
+    </main>
+
+    <dialog id="catalog-dialog">
+      <form method="dialog" class="dialog-card">
+        <button class="close" value="cancel" aria-label="Close">×</button>
+        <p class="eyebrow">CATALOG CONNECTION</p>
+        <h2>Where is your games folder?</h2>
+        <p>Enter the public URL of its <code>catalog.json</code>. The file should list each game and its asset paths.</p>
+        <label>Catalog URL<input id="catalog-url" type="url" placeholder="https://example.com/games/catalog.json" /></label>
+        <p class="hint">The catalog host must allow browser access (CORS). GitHub Pages works well.</p>
+        <div class="dialog-actions"><button class="ghost" id="demo-button" value="demo">Use demo catalog</button><button class="primary" id="save-catalog" value="save">Save connection</button></div>
+      </form>
+    </dialog>
+
+    <template id="game-template">
+      <article class="game-card"><a class="cover-link" target="_blank" rel="noopener"><img class="cover" alt="" loading="lazy" /><span class="play-badge">Play now ↗</span></a><div class="game-info"><p class="genre"></p><h3></h3><p class="description"></p><div class="tags"></div></div></article>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>
